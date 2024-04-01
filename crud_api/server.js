@@ -8,6 +8,9 @@ app.get("/", (req,res)=>{
     res.send("CRUD API");
 })
 
+//@desc Get all products
+//@route GET /products
+//@access public
 app.get('/products', async(req,res)=>{
     try{
         const products = await Product.find({});
@@ -18,6 +21,9 @@ app.get('/products', async(req,res)=>{
     }
 })
 
+//@desc Get one product by id
+//@route GET /product/:id
+//@access public
 app.get('/product/:id', async(req,res)=>{
     try{
         const {id} = req.params;
@@ -29,6 +35,9 @@ app.get('/product/:id', async(req,res)=>{
     }
 })
 
+//@desc Create a product
+//@route POST /products
+//@access public
 app.post('/products', async(req,res)=>{
     try{
         const product = await Product.create(req.body);
@@ -39,6 +48,9 @@ app.post('/products', async(req,res)=>{
     }
 })
 
+//@desc Update a product by id
+//@route PUT /product/:id
+//@access public
 app.put("/product/:id", async(req,res)=>{
     try{
         const {id} = req.params;
@@ -53,6 +65,10 @@ app.put("/product/:id", async(req,res)=>{
     }
 })
 
+
+//@desc Delete a product by id
+//@route DELETE /product/:id
+//@access public
 app.delete("/product/:id", async(req,res)=>{
 
     try{
